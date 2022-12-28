@@ -1,27 +1,4 @@
-class Iterable {
-
-    constructor(items) {
-        this.items = items
-    }
-
-    [Symbol.iterator]() {
-
-        var index = -1
-        var data = this.items
-
-        return {
-            next: () => ({
-
-                value: this.item(data[++index]),
-                done: !(index in data)
-            })
-        }
-    }
-
-    item(item) {
-        return item
-    }
-}
+import Iterable from './Iterable.js'
 
 class Collection extends Iterable {
 
@@ -55,5 +32,6 @@ const collection = new NumberCollection([1, 2, 3, 4, 5])
 for (const number of collection) {
     console.log(number.squared())
 }
-
-console.log("total", collection.count())
+for (const number of collection) {
+    console.log(number.squared())
+}
