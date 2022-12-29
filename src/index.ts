@@ -13,7 +13,7 @@ export default class Collection extends Iterable {
     contains(param){
 
         if(typeof param == "function"){
-            for (const item of this) {
+            for (const item in this) {
                 if(param(item)){
                     return true
                 }
@@ -21,7 +21,7 @@ export default class Collection extends Iterable {
             return false
         }
         
-        for (const item of this.items) {
+        for (const item in this.items) {
             if(item === param){
                 return true
             }
