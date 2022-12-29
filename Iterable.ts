@@ -1,6 +1,8 @@
 export default class Iterable {
 
-    constructor(items) {
+    public items;
+
+    constructor(items:any) {
         this.items = items
     }
 
@@ -18,7 +20,7 @@ export default class Iterable {
         }
     }
 
-    item(item) {
+    item(item:any) {
         return item
     }
 }
