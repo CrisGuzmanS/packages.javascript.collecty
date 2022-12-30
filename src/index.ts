@@ -1,11 +1,20 @@
 import Iterable from './Iterable';
 
 export default class Collection extends Iterable {
+  
+  /**
+   * gets the first item in the collection
+   * 
+   */
   first() {
     return this.item(this.items[0]);
   }
 
-  count() {
+  /**
+   * gets total items in the collection
+   * 
+   */
+  count(): number {
     return this.items.length;
   }
 

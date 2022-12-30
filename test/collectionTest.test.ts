@@ -15,9 +15,19 @@ class Number {
     }
 }
 
-test('test one is one', () => {
+test('test count method', () => {
 
     const collection = new NumberCollection([1, 2, 3, 4, 5])
 
     expect(collection.count()).toBe(5);
+});
+
+test('test iteration', () => {
+
+    const collection = new NumberCollection([1, 2, 3, 4, 5])
+
+    for (const item of collection) {
+        console.log(item)
+    }
+
 });

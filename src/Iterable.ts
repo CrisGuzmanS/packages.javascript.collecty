@@ -1,4 +1,4 @@
-export default class Iterable implements Iterator<any> {
+export default class Iterable {
   public items;
   public index = -1;
 
@@ -6,33 +6,17 @@ export default class Iterable implements Iterator<any> {
     this.items = items;
   }
 
-  public next(): IteratorResult<any> {
-
-    ++this.index;
-    let isDone = false;
-
-    if (!(this.index in this.items)) {
-      isDone = true;
-      this.index = -1
-    }
+  public [Symbol.iterator]() {
+    let index = -1;
+    const data = this.items;
 
     return {
-      done: isDone,
-      value: this.index
-    }
+      next: () => ({
+        value: this.item(data[++index]),
+        done: !(index in data),
+      }),
+    };
   }
-
-  // public [Symbol.iterator]() {
-  //   let index = -1;
-  //   const data = this.items;
-
-  //   return {
-  //     next: () => ({
-  //       value: this.item(data[++index]),
-  //       done: !(index in data),
-  //     }),
-  //   };
-  // }
 
   item(item: any) {
     return item;
