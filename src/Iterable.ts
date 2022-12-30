@@ -5,7 +5,7 @@ export default class Iterable {
     this.items = items;
   }
 
-  [Symbol.iterator]() {
+  public [Symbol.iterator]() {
     let index = -1;
     const data = this.items;
 
