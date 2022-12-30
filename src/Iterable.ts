@@ -1,26 +1,23 @@
 export default class Iterable {
+  public items;
 
-    public items;
+  constructor(items: any) {
+    this.items = items;
+  }
 
-    constructor(items:any) {
-        this.items = items
-    }
+  [Symbol.iterator]() {
+    let index = -1;
+    const data = this.items;
 
-    [Symbol.iterator]() {
+    return {
+      next: () => ({
+        value: this.item(data[++index]),
+        done: !(index in data),
+      }),
+    };
+  }
 
-        var index = -1
-        var data = this.items
-
-        return {
-            next: () => ({
-
-                value: this.item(data[++index]),
-                done: !(index in data)
-            })
-        }
-    }
-
-    item(item:any) {
-        return item
-    }
+  item(item: any) {
+    return item;
+  }
 }

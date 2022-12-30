@@ -1,32 +1,29 @@
-import Iterable from './Iterable'
+import Iterable from './Iterable';
 
 export default class Collection extends Iterable {
+  first() {
+    return this.item(this.items[0]);
+  }
 
-    first() {
-        return this.item(this.items[0])
-    }
+  count() {
+    return this.items.length;
+  }
 
-    count() {
-        return this.items.length
-    }
-
-    contains(param){
-
-        if(typeof param == "function"){
-            for (const item in this) {
-                if(param(item)){
-                    return true
-                }
-            }
-            return false
+  contains(param: any) {
+    if (typeof param === 'function') {
+      for (const item in this) {
+        if (param(item)) {
+          return true;
         }
-        
-        for (const item in this.items) {
-            if(item === param){
-                return true
-            }
-        }
-        return false
-        
+      }
+      return false;
     }
+
+    for (const item in this.items) {
+      if (item === param) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

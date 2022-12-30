@@ -1,7 +1,7 @@
 import Collection from '../src'
 
 class NumberCollection extends Collection {
-    item(item) {
+    item(item:any) {
         return new Number(item)
     }
 }
@@ -10,7 +10,7 @@ class Number {
 
     public item;
 
-    constructor(item) {
+    constructor(item:any) {
         this.item = item
     }
 }
