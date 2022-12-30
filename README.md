@@ -10,37 +10,65 @@ This is an amazing library that allows you to create collections and iterate ove
 
 2. use the package:
 
-        import Collection from 'collecty'
+```js
+import Collection from 'collecty'
 
-        class NumberCollection extends Collection
-    
-        class NumberCollection {
-            item(item:any) {
-                return new Number(item)
-            }
-        }
+class NumberCollection extends Collection
 
-        class Number {
-            public item;
+class NumberCollection {
+    item(item:any) {
+        return new Number(item)
+    }
+}
 
-            constructor(item:any) {
-                this.item = item
-            }
+class Number {
+    public item;
 
-            public isPair(): bool{
-                return this.item % 2 == 0
-            }
-        }
+    constructor(item:any) {
+        this.item = item
+    }
 
-        const numbers = new NumberCollection([1,2,3,4,5])
+    public isPair(): bool{
+        return this.item % 2 == 0
+    }
+}
 
-        for (const item of numbers) {
-            console.log(item.isPair())
-        }
+const numbers = new NumberCollection([1,2,3,4,5])
 
-        output
-        > false
-        > true
-        > false
-        > true
-        > false
+for (const item of numbers) {
+    console.log(item.isPair())
+}
+
+//output
+> false
+> true
+> false
+> true
+> false
+```
+
+## available methods
+
+### first()
+
+gets the first item in the `collection`
+
+```js
+const collection = new Collection([1,2,3])
+console.log("first element", collection.first())
+
+// output
+> first element 1
+```
+
+### count()
+
+gets total items in the `collection`
+
+```js
+const collection = new Collection([1,2,3]);
+console.log("total", collection.count())
+
+// output
+> total 3
+```
