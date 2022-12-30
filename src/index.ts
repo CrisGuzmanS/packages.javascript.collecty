@@ -16,14 +16,14 @@ export default class Collection extends Iterable {
   }
 
   /**
-   * gets total items in the `collection`
-   * 
-   * ```js
+  * gets total items in the `collection`
+  * 
+  * ```js
   * const collection = new Collection([1,2,3]);
   * console.log("total", collection.count())
   * // > total 3
   * ```
-   */
+  */
   count(): number {
     return this.items.length;
   }
