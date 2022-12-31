@@ -72,3 +72,21 @@ console.log("total", collection.count())
 // output
 > total 3
 ```
+
+### isEmpty()
+
+```js
+const collection = new Collection([1,2,3])
+console.log(collection.isEmpty())
+
+// output
+> false
+```
+
+```js
+const collection = new Collection([])
+console.log(collection.isEmpty())
+
+// output
+> true
+```

@@ -2,7 +2,7 @@ export default class Iterable {
   public items;
   public index = -1;
 
-  constructor(items: any) {
+  constructor(items: any[]) {
     this.items = items;
   }
 

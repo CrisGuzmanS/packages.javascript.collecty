@@ -16,33 +16,41 @@ export default class Collection extends Iterable {
   }
 
   /**
-  * gets total items in the `collection`
-  * 
-  * ```js
-  * const collection = new Collection([1,2,3]);
-  * console.log("total", collection.count())
-  * // > total 3
-  * ```
-  */
+   * gets total items in the `collection`
+   * 
+   * ```js
+   * const collection = new Collection([1,2,3]);
+   * 
+   * console.log("total", collection.count())
+   * 
+   * // output
+   * > total 3
+   * ```
+   */
   count(): number {
     return this.items.length;
   }
 
-  contains(param: any) {
-    if (typeof param === 'function') {
-      for (const item in this) {
-        if (param(item)) {
-          return true;
-        }
-      }
-      return false;
-    }
-
-    for (const item in this.items) {
-      if (item === param) {
-        return true;
-      }
-    }
-    return false;
+  /**
+   * checks if the `collection` is empty
+   * 
+   * ```js
+   * const collection = new Collection([1,2,3])
+   * console.log(collection.isEmpty())
+   * 
+   * // output
+   * > false
+   * ```
+   * 
+   * ```js
+   * const collection = new Collection([])
+   * console.log(collection.isEmpty())
+   * 
+   * // output
+   * > true
+   * ```
+   */
+  isEmpty(): boolean {
+    return !this.items.length
   }
 }
