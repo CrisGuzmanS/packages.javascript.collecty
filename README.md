@@ -142,3 +142,12 @@ const names = persons.map((person: Person) => {
     return person.name()
 })
 ```
+
+## TO-DO list
+
+- [ ] filter method
+- [ ] flatten method
+- [ ] toArray method
+- [ ] StringCollection class
+- [ ] ObjectCollection class
+- [ ] numberCollection class
