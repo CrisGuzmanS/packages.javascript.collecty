@@ -71,7 +71,26 @@ console.log("total", collection.count())
 > total 3
 ```
 
+### firstWhere( callback: (any) => any )
+
+```js
+let persons = new PersonCollection([{
+        'name': 'rix'
+ }, {
+     'name': 'roger'
+ }])
+
+ const person = persons.firstWhere((person: Person) => {
+     return person.name() == "roger"
+ })
+
+// output
+> Person { item { name: "roger" } }
+```
+
 ### isEmpty()
+
+checks if the collection has at least one item
 
 ```js
 const collection = new Collection([1,2,3])
@@ -89,7 +108,7 @@ console.log(collection.isEmpty())
 > true
 ```
 
-### map()
+### map( callback: (any) => any )
 
 returns a collection with the data mapped for each element
 

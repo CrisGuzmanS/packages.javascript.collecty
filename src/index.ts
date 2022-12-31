@@ -11,7 +11,7 @@ export default class Collection extends Iterable {
    * // > first element 1
    * ```
    */
-  public first() {
+  public first(): any {
     return this.item(this.items[0]);
   }
 
@@ -55,7 +55,7 @@ export default class Collection extends Iterable {
   }
 
   /**
-   * returns a collection with the data mapped for each element
+   * returns a `collection` with the data mapped for each element
    *
    * ```js 
    * let persons = new PersonCollection([{
@@ -69,7 +69,35 @@ export default class Collection extends Iterable {
    * })
    * ```
    */
-  public map(callback: (item: any) => any) {
+  public map(callback: (item: any) => any): Collection {
     return new Collection(this.items.map(itemElement => callback(this.item(itemElement))))
+  }
+
+  /**
+   * returns the first element that matches the given callback
+   * 
+   * ```js
+   * let persons = new PersonCollection([{
+   *         'name': 'rix'
+   *  }, {
+   *      'name': 'roger'
+   *  }])
+   * 
+   *  const person = persons.firstWhere((person: Person) => {
+   *      return person.name() == "roger"
+   *  })
+   * 
+   * // output
+   * > Person { item { name: "roger" } }
+   * ```
+   */
+  public firstWhere(callback: (item: any) => any): any | null {
+
+    for (const item of this) {
+      if (callback(item)) {
+        return item
+      }
+    }
+    return null
   }
 }
