@@ -151,3 +151,8 @@ const names = persons.map((person: Person) => {
 - [ ] StringCollection class
 - [ ] ObjectCollection class
 - [ ] numberCollection class
+
+## Are you a collaborator?
+
+if you whish to collaborate to my package, you can pull request to the repository:
+[click here to go to the repository](https://github.com/CrisGuzmanS/packages.javascript.collecty)

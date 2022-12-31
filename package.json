@@ -1,6 +1,6 @@
 {
   "name": "collecty",
-  "version": "1.3.0",
+  "version": "1.3.2",
   "description": "it allows to iterate throw a class with an easy-to-read syntax",
    "main": "lib/index.js",
    "types": "lib/index.d.ts",
@@ -14,6 +14,10 @@
     "prepublishOnly" : "npm test && npm run lint",
     "version" : "npm run format && git add -A src",
     "postversion" : "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CrisGuzmanS/packages.javascript.collecty"
   },
   "author": "Cristian Guzmán",
   "license": "ISC",
@@ -30,6 +34,8 @@
     "iterable",
     "first",
     "count",
-    "array"
+    "array",
+    "laravel",
+    "list"
   ]
 }
