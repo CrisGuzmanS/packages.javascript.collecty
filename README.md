@@ -13,9 +13,7 @@ This is an amazing library that allows you to create collections and iterate ove
 ```js
 import Collection from 'collecty'
 
-class NumberCollection extends Collection
-
-class NumberCollection {
+class NumberCollection extends Collection {
     item(item:any) {
         return new Number(item)
     }
