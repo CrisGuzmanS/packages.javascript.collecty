@@ -6,6 +6,25 @@ class NumberCollection extends Collection {
     }
 }
 
+class PersonCollection extends Collection {
+    item(item: any): Person {
+        return new Person(item)
+    }
+}
+
+class Person {
+
+    private item;
+
+    constructor(item: any) {
+        this.item = item
+    }
+
+    public name() {
+        return this.item.name
+    }
+}
+
 class Number {
 
     public item;
@@ -45,4 +64,20 @@ test('test is empty method', () => {
 
     numbers = new NumberCollection([])
     expect(numbers.isEmpty()).toBe(true)
+});
+
+test('test is empty method', () => {
+
+    let persons = new PersonCollection([{
+        'name': 'rix'
+    }, {
+        'name': 'roger'
+    }])
+
+    const names = persons.map((person: Person) => {
+        return person.name()
+    })
+
+    expect(names.first()).toBe("rix")
+
 });

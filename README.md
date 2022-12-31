@@ -88,3 +88,38 @@ console.log(collection.isEmpty())
 // output
 > true
 ```
+
+### map()
+
+returns a collection with the data mapped for each element
+
+```js 
+class PersonCollection extends Collection {
+    item(item: any): Person {
+        return new Person(item)
+    }
+}
+
+class Person {
+
+    private item;
+
+    constructor(item: any) {
+        this.item = item
+    }
+
+    public name() {
+        return this.item.name
+    }
+}
+
+let persons = new PersonCollection([{
+    'name': 'rix'
+}, {
+    'name': 'roger'
+}])
+
+const names = persons.map((person: Person) => {
+    return person.name()
+})
+```

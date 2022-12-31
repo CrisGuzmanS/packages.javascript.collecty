@@ -11,7 +11,7 @@ export default class Collection extends Iterable {
    * // > first element 1
    * ```
    */
-  first() {
+  public first() {
     return this.item(this.items[0]);
   }
 
@@ -27,7 +27,7 @@ export default class Collection extends Iterable {
    * > total 3
    * ```
    */
-  count(): number {
+  public count(): number {
     return this.items.length;
   }
 
@@ -50,7 +50,26 @@ export default class Collection extends Iterable {
    * > true
    * ```
    */
-  isEmpty(): boolean {
+  public isEmpty(): boolean {
     return !this.items.length
+  }
+
+  /**
+   * returns a collection with the data mapped for each element
+   *
+   * ```js 
+   * let persons = new PersonCollection([{
+   *  'name': 'rix'
+   * }, {
+   *  'name': 'roger'
+   * }])
+   *
+   * const names = persons.map((person: Person) => {
+   *  return person.name()
+   * })
+   * ```
+   */
+  public map(callback: (item: any) => any) {
+    return new Collection(this.items.map(itemElement => callback(this.item(itemElement))))
   }
 }
