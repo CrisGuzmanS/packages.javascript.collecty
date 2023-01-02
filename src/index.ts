@@ -116,4 +116,12 @@ export default class Collection extends Iterable {
   public toArray(): any[] {
     return this.items
   }
+
+  /**
+   * creates a new collection from a json
+   * 
+   */
+  public static fromJson(json: string): Collection {
+    return new this(JSON.parse(json))
+  }
 }

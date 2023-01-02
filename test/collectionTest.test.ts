@@ -105,3 +105,10 @@ test('test "is array" method', () => {
 
     expect(Array.isArray(collection.toArray())).toBe(true)
 })
+
+test('test "from json" method', () => {
+
+    let collection = Collection.fromJson("[1,2,3]")
+
+    expect(collection.count()).toBe(3)
+})
