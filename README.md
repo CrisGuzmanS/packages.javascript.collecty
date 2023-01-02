@@ -184,7 +184,7 @@ const names = persons.map((person: Person) => {
 
 ## TO-DO list
 
-- [ ] filter method
+- [ ] last method
 - [ ] flatten method
 - [ ] StringCollection class
 - [ ] ObjectCollection class

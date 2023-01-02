@@ -59,8 +59,7 @@ export default class Collection extends Iterable {
   filter(callback: (item: any) => any): Collection {
     const newItems = []
 
-    for (let index = 0; index < this.items.length; index++) {
-
+    for (const [index, element] of this.items.entries()) {
       const currentItem = this.item(this.items[index])
 
       if (callback(currentItem)) {
@@ -68,7 +67,7 @@ export default class Collection extends Iterable {
       }
     }
 
-    let clone = this.clone()
+    const clone = this.clone()
 
     clone.items = newItems
 
