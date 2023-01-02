@@ -98,3 +98,10 @@ test('test "first where" method', () => {
     expect(person.name()).toBe("roger")
 
 });
+
+test('test "is array" method', () => {
+
+    let collection = new Collection([])
+
+    expect(Array.isArray(collection.toArray())).toBe(true)
+})

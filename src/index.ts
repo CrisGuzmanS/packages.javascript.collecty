@@ -100,4 +100,20 @@ export default class Collection extends Iterable {
     }
     return null
   }
+
+  /**
+   * Transforms the collection to a javascript native array
+   * 
+   * ```js
+   * collection = new Collection([1,2,3])
+   * 
+   * console.log(collection.toArray())
+   * 
+   * // output
+   * > [1,2,3]
+   * ```
+   */
+  public toArray(): any[] {
+    return this.items
+  }
 }

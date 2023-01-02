@@ -73,6 +73,8 @@ console.log("total", collection.count())
 
 ### firstWhere( callback: (any) => any )
 
+gets the first item which match with the callback condition
+
 ```js
 let persons = new PersonCollection([{
         'name': 'rix'
@@ -86,6 +88,19 @@ let persons = new PersonCollection([{
 
 // output
 > Person { item { name: "roger" } }
+```
+
+### toArray()
+
+Transforms the collection to a javascript native array
+
+```js
+collection = new Collection([1,2,3])
+
+console.log(collection.toArray())
+
+// output
+> [1,2,3]
 ```
 
 ### isEmpty()
@@ -148,6 +163,7 @@ const names = persons.map((person: Person) => {
 - [ ] filter method
 - [ ] flatten method
 - [ ] toArray method
+- [ ] fromJson method
 - [ ] StringCollection class
 - [ ] ObjectCollection class
 - [ ] numberCollection class
