@@ -16,6 +16,16 @@ export default class Collection extends Iterable {
   }
 
   /**
+   * clones the `collection`
+   * 
+   * const collection = new Collection([1,2,3])
+   * const newCollection = collection.clone() // newCollection has the same items than collection
+   */
+  public clone(): Collection {
+    return Object.assign(Object.create(Object.getPrototypeOf(this)), this)
+  }
+
+  /**
    * gets total items in the `collection`
    * 
    * ```js
@@ -29,6 +39,40 @@ export default class Collection extends Iterable {
    */
   public count(): number {
     return this.items.length;
+  }
+
+  /**
+   * returns a new `collection` with the `items` that match with the callback given
+   * 
+   * ```js
+   * let collection = new Collection([1, 2, 3])
+   *
+   * let newCollection = collection.filter((item: number) => {
+   *    return item <= 2
+   * })
+   * 
+   * console.log(newCollection.toArray())
+   * // output
+   * > [1,2]
+   * ```
+   */
+  filter(callback: (item: any) => any): Collection {
+    const newItems = []
+
+    for (let index = 0; index < this.items.length; index++) {
+
+      const currentItem = this.item(this.items[index])
+
+      if (callback(currentItem)) {
+        newItems.push(this.items[index])
+      }
+    }
+
+    let clone = this.clone()
+
+    clone.items = newItems
+
+    return clone
   }
 
   /**
@@ -74,7 +118,7 @@ export default class Collection extends Iterable {
   }
 
   /**
-   * returns the first element that matches the given callback
+   * returns the first `item` that matches the given callback
    * 
    * ```js
    * let persons = new PersonCollection([{
@@ -102,7 +146,7 @@ export default class Collection extends Iterable {
   }
 
   /**
-   * Transforms the collection to a javascript native array
+   * Transforms the `collection` to a javascript native array
    * 
    * ```js
    * collection = new Collection([1,2,3])
@@ -117,8 +161,12 @@ export default class Collection extends Iterable {
     return this.items
   }
 
+  public static fromArray(array: any[]): Collection {
+    return new this(array)
+  }
+
   /**
-   * creates a new collection from a json
+   * creates a new `collection` from a json
    * 
    * ```js
    * collection = Collection.fromJson("[1,2,3]")

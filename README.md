@@ -71,6 +71,22 @@ console.log("total", collection.count())
 > total 3
 ```
 
+### filter( callback: (any) => any )
+
+returns a new `collection` with the `items` that match with the callback given
+
+```js
+let collection = new Collection([1, 2, 3])
+
+let newCollection = collection.filter((item: number) => {
+   return item <= 2
+})
+
+console.log(newCollection.toArray())
+// output
+> [1,2]
+```
+
 ### firstWhere( callback: (any) => any )
 
 gets the first item which match with the callback condition
@@ -172,7 +188,7 @@ const names = persons.map((person: Person) => {
 - [ ] flatten method
 - [ ] StringCollection class
 - [ ] ObjectCollection class
-- [ ] numberCollection class
+- [ ] NumberCollection class
 
 ## Are you a collaborator?
 

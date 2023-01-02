@@ -112,3 +112,22 @@ test('test "from json" method', () => {
 
     expect(collection.count()).toBe(3)
 })
+
+test('test "clone" method', () => {
+
+    let collection = new Collection([1, 2, 3])
+    let collectionClone = collection.clone()
+
+    expect(collectionClone.count()).toBe(collection.count())
+})
+
+test('test "filter" method', () => {
+
+    let collection = new Collection([1, 2, 3])
+
+    let newCollection = collection.filter((item: number) => {
+        return item <= 2
+    })
+
+    expect(newCollection.count()).toBe(2)
+})

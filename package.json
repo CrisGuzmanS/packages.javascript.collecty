@@ -1,6 +1,6 @@
 {
   "name": "collecty",
-  "version": "1.5.0",
+  "version": "1.7.0",
   "description": "it allows to iterate throw a class with an easy-to-read syntax",
    "main": "lib/index.js",
    "types": "lib/index.d.ts",
