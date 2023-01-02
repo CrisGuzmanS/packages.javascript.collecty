@@ -90,6 +90,14 @@ let persons = new PersonCollection([{
 > Person { item { name: "roger" } }
 ```
 
+### fromJson( json: string )
+
+creates a new collection from a json
+
+```js
+collection = Collection.fromJson("[1,2,3]")
+```
+
 ### toArray()
 
 Transforms the collection to a javascript native array

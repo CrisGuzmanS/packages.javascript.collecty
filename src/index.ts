@@ -120,6 +120,9 @@ export default class Collection extends Iterable {
   /**
    * creates a new collection from a json
    * 
+   * ```js
+   * collection = Collection.fromJson("[1,2,3]")
+   * ```
    */
   public static fromJson(json: string): Collection {
     return new this(JSON.parse(json))
