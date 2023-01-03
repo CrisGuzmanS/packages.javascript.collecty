@@ -1,7 +1,7 @@
 {
   "name": "collecty",
-  "version": "1.7.1",
-  "description": "it allows to iterate throw a class with an easy-to-read syntax and iterate over it transformir each record to your desired class/item",
+  "version": "1.7.2",
+  "description": "allows iterating an array of elements with an easy-to-read syntax and gives functionality to the collection and the elements it iterates.",
    "main": "lib/index.js",
    "types": "lib/index.d.ts",
   "scripts": {

@@ -2,47 +2,98 @@
 
 This is an amazing library that allows you to create collections and iterate over them, allowing you to create functionality for the collections and the elements it iterates over.
 
-## basic usage
-
-1. in the console, you need to install the package:
+## instalation
 
 `npm install collecty`
 
-2. use the package:
+## basic usage
 
 ```js
 import Collection from 'collecty'
 
-class NumberCollection extends Collection {
+const myCollection = new Collection([1,2,3])
+
+let collection = new Collection([1, 2, 3])
+
+let newCollection = collection.filter((item: number) => {
+   return item <= 2
+})
+
+console.log(newCollection.toArray())
+// output
+> [1,2]
+```
+
+## advanced usage
+
+for example, maybe you could have an array of authors as a json format:
+
+```js
+const authorsArray = [
+    {
+        "name": "Arthur",
+        "gender": "male",
+        "age": "15"
+    },
+    {
+        "name": "Veronica",
+        "gender": "female",
+        "age": "40"
+    }
+]
+```
+
+in the next code, as you can see, you can create your own collection, allowing you to trasnform each element that it has from an object to your custom Author class
+
+```js
+import Collection from 'collecty'
+
+class AuthorCollection extends Collection {
     item(item:any) {
-        return new Number(item)
+        return new Author(item)
+    }
+
+    public malePeople(): AuthorCollection{
+        // ... code
+    }
+
+    public femalePeople(): AuthorCollection {
+        // ... code
     }
 }
 
-class Number {
+class Author {
     public item;
 
     constructor(item:any) {
         this.item = item
     }
 
-    public isPair(): bool{
-        return this.item % 2 == 0
+    public gender(): bool{
+        // ... code
+    }
+
+    public isLegalAge(): bool{
+        // .. code
     }
 }
 
-const numbers = new NumberCollection([1,2,3,4,5])
+const authors = new AuthorCollection(authorsArray)
+```
 
-for (const item of numbers) {
-    console.log(item.isPair())
+as you can see, in the code above, you can easily get the male or female people with an easy-to-read-syntax:
+
+```js
+authors.malePeople()
+```
+
+and you can know if each person is legal age or not:
+
+```js
+
+for (const author of authors) {
+    console.log(author.isLegalAge())
 }
-
-//output
-> false
-> true
-> false
-> true
-> false
 ```
 
 ## available methods
