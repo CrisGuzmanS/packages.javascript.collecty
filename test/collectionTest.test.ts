@@ -131,3 +131,20 @@ test('test "filter" method', () => {
 
     expect(newCollection.count()).toBe(2)
 })
+
+test('test "contains" method', () => {
+
+    const collection = new Collection([1, 2, 3])
+
+    const containsThree = collection.contains((item: number) => {
+        return item == 3
+    })
+    
+    expect(containsThree).toBe(true)
+    
+    const containsFour = collection.contains((item: number) => {
+        return item == 4
+    })
+
+    expect(containsFour).toBe(false)
+})

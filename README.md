@@ -110,6 +110,24 @@ console.log("first element", collection.first())
 > first element 1
 ```
 
+### contains( callback : (item:any) => any )
+
+checks if the `collection` contains at leat one item which match with the callback
+
+```js
+const collection = new Collection([1, 2, 3])
+
+const containsThree = collection.contains( (item: number) => item == 3 )
+
+// true
+
+const containsFour = collection.contains((item: number) => {
+    return item == 4
+})
+
+// false
+```
+
 ### count()
 
 gets total items in the `collection`
