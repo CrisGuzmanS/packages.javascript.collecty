@@ -148,3 +148,12 @@ test('test "contains" method', () => {
 
     expect(containsFour).toBe(false)
 })
+
+test('test "get" method', () => {
+
+    const collection = new Collection([1, 2, 3])
+
+    const two = collection.get(1)
+    
+    expect(two).toBe(2)
+})

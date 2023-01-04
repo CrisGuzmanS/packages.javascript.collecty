@@ -3,19 +3,6 @@ import Iterable from './Iterable';
 export default class Collection extends Iterable {
 
   /**
-   * gets the first item in the `collection`
-   * 
-   * ```js
-   * const collection = new Collection([1,2,3])
-   * console.log("first element", collection.first())
-   * // > first element 1
-   * ```
-   */
-  public first(): any {
-    return this.item(this.items[0]);
-  }
-
-  /**
    * clones the `collection`
    * 
    * const collection = new Collection([1,2,3])
@@ -25,6 +12,9 @@ export default class Collection extends Iterable {
     return Object.assign(Object.create(Object.getPrototypeOf(this)), this)
   }
 
+  /**
+   * 
+   */
   public contains(callback: (item: any) => boolean): boolean {
 
     for (const item of this) {
@@ -67,7 +57,7 @@ export default class Collection extends Iterable {
    * > [1,2]
    * ```
    */
-  filter(callback: (item: any) => any): Collection {
+  public filter(callback: (item: any) => any): Collection {
     const newItems = []
 
     for (const [index, element] of this.items.entries()) {
@@ -83,6 +73,80 @@ export default class Collection extends Iterable {
     clone.items = newItems
 
     return clone
+  }
+
+  /**
+   * gets the first item in the `collection`
+   * 
+   * ```js
+   * const collection = new Collection([1,2,3])
+   * console.log("first element", collection.first())
+   * // > first element 1
+   * ```
+   */
+  public first(): any {
+    return this.item(this.items[0]);
+  }
+
+  /**
+   * returns the first `item` that matches the given callback
+   * 
+   * ```js
+   * let persons = new PersonCollection([{
+   *         'name': 'rix'
+   *  }, {
+   *      'name': 'roger'
+   *  }])
+   * 
+   *  const person = persons.firstWhere((person: Person) => {
+   *      return person.name() == "roger"
+   *  })
+   * 
+   * // output
+   * > Person { item { name: "roger" } }
+   * ```
+   */
+  public firstWhere(callback: (item: any) => any): any | null {
+
+    for (const item of this) {
+      if (callback(item)) {
+        return item
+      }
+    }
+    return null
+  }
+
+  /**
+   * 
+   */
+  public static fromArray(array: any[]): Collection {
+    return new this(array)
+  }
+
+  /**
+   * creates a new `collection` from a json
+   * 
+   * ```js
+   * collection = Collection.fromJson("[1,2,3]")
+   * ```
+   */
+  public static fromJson(json: string): Collection {
+    return new this(JSON.parse(json))
+  }
+
+  /**
+   * gets the item acording to the given index
+   * 
+   * ```js
+   * const collection = new Collection([1, 2, 3])
+   * console.log(collection.get(1))
+   *  
+   *  \\ output
+   * > 2
+   * ```
+   */
+  public get(index: number): any {
+    return this.item(this.items[index])
   }
 
   /**
@@ -128,34 +192,6 @@ export default class Collection extends Iterable {
   }
 
   /**
-   * returns the first `item` that matches the given callback
-   * 
-   * ```js
-   * let persons = new PersonCollection([{
-   *         'name': 'rix'
-   *  }, {
-   *      'name': 'roger'
-   *  }])
-   * 
-   *  const person = persons.firstWhere((person: Person) => {
-   *      return person.name() == "roger"
-   *  })
-   * 
-   * // output
-   * > Person { item { name: "roger" } }
-   * ```
-   */
-  public firstWhere(callback: (item: any) => any): any | null {
-
-    for (const item of this) {
-      if (callback(item)) {
-        return item
-      }
-    }
-    return null
-  }
-
-  /**
    * Transforms the `collection` to a javascript native array
    * 
    * ```js
@@ -169,20 +205,5 @@ export default class Collection extends Iterable {
    */
   public toArray(): any[] {
     return this.items
-  }
-
-  public static fromArray(array: any[]): Collection {
-    return new this(array)
-  }
-
-  /**
-   * creates a new `collection` from a json
-   * 
-   * ```js
-   * collection = Collection.fromJson("[1,2,3]")
-   * ```
-   */
-  public static fromJson(json: string): Collection {
-    return new this(JSON.parse(json))
   }
 }
