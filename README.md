@@ -98,18 +98,6 @@ for (const author of authors) {
 
 ## available methods
 
-### first()
-
-gets the first item in the `collection`
-
-```js
-const collection = new Collection([1,2,3])
-console.log("first element", collection.first())
-
-// output
-> first element 1
-```
-
 ### contains( callback : (item:any) => any )
 
 checks if the `collection` contains at leat one item which match with the callback
@@ -156,6 +144,20 @@ console.log(newCollection.toArray())
 > [1,2]
 ```
 
+### first()
+
+gets the first item in the `collection`
+
+```js
+const collection = new Collection([1,2,3])
+console.log("first element", collection.first())
+
+// output
+> first element 1
+```
+
+
+
 ### firstWhere( callback: (any) => any )
 
 gets the first item which match with the callback condition
@@ -181,19 +183,6 @@ creates a new collection from a json
 
 ```js
 collection = Collection.fromJson("[1,2,3]")
-```
-
-### toArray()
-
-Transforms the collection to a javascript native array
-
-```js
-collection = new Collection([1,2,3])
-
-console.log(collection.toArray())
-
-// output
-> [1,2,3]
 ```
 
 ### isEmpty()
@@ -249,6 +238,19 @@ let persons = new PersonCollection([{
 const names = persons.map((person: Person) => {
     return person.name()
 })
+```
+
+### toArray()
+
+Transforms the collection to a javascript native array
+
+```js
+collection = new Collection([1,2,3])
+
+console.log(collection.toArray())
+
+// output
+> [1,2,3]
 ```
 
 ## TO-DO list

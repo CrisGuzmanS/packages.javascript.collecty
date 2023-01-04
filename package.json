@@ -36,6 +36,7 @@
     "count",
     "array",
     "laravel",
-    "list"
+    "list",
+    "contains"
   ]
 }
