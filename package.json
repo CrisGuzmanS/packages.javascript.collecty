@@ -1,6 +1,6 @@
 {
   "name": "collecty",
-  "version": "1.9.2",
+  "version": "1.9.3",
   "description": "allows iterating an array of elements with an easy-to-read syntax and gives functionality to the collection and the elements it iterates.",
    "main": "lib/index.js",
    "types": "lib/index.d.ts",

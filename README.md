@@ -93,7 +93,7 @@ for (const author of authors) {
 
 ## available methods
 
-### contains( callback : (item:any) => any )
+### contains( callback : (item:any) => any ): boolean
 
 checks if the `collection` contains at leat one item which match with the callback
 
@@ -111,7 +111,7 @@ const containsFour = collection.contains((item: number) => {
 // false
 ```
 
-### count()
+### count(): number
 
 gets total items in the `collection`
 
@@ -123,7 +123,7 @@ console.log("total", collection.count())
 > total 3
 ```
 
-### filter( callback: (any) => any )
+### filter( callback: (any) => any ): any
 
 returns a new `collection` with the `items` that match with the callback given
 
@@ -139,7 +139,7 @@ console.log(newCollection.toArray())
 > [1,2]
 ```
 
-### first()
+### first(): any
 
 gets the first item in the `collection`
 
@@ -153,7 +153,7 @@ console.log("first element", collection.first())
 
 
 
-### firstWhere( callback: (any) => any )
+### firstWhere( callback: (any) => any ): any
 
 gets the first item which match with the callback condition
 
@@ -172,7 +172,7 @@ let persons = new PersonCollection([{
 > Person { item { name: "roger" } }
 ```
 
-### fromJson( json: string )
+### fromJson( json: string ): Collection
 
 creates a new collection from a json
 
@@ -180,7 +180,7 @@ creates a new collection from a json
 collection = Collection.fromJson("[1,2,3]")
 ```
 
-### get()
+### get(): any
 
 gets the item acording to the given index
 
@@ -192,7 +192,7 @@ console.log(collection.get(1))
 > 2
 ```
 
-### isEmpty()
+### isEmpty(): boolean
 
 checks if the collection has at least one item
 
@@ -212,7 +212,7 @@ console.log(collection.isEmpty())
 > true
 ```
 
-### map( callback: (any) => any )
+### map( callback: (any) => any ): Collection
 
 returns a collection with the data mapped for each element
 
@@ -247,7 +247,7 @@ const names = persons.map((person: Person) => {
 })
 ```
 
-### toArray()
+### toArray(): any[]
 
 Transforms the collection to a javascript native array
 
