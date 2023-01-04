@@ -180,6 +180,18 @@ creates a new collection from a json
 collection = Collection.fromJson("[1,2,3]")
 ```
 
+### get()
+
+gets the item acording to the given index
+
+```js
+const collection = new Collection([1, 2, 3])
+console.log(collection.get(1))
+ 
+ \\ output
+> 2
+```
+
 ### isEmpty()
 
 checks if the collection has at least one item
