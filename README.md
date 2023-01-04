@@ -43,7 +43,7 @@ const authorsArray = [
 ]
 ```
 
-in the next code, as you can see, you can create your own collection, allowing you to trasnform each element that it has from an object to your custom Author class
+in the next code, as you can see, you can create your own collection, allowing you to transform each element that it has from an object to your custom Author class
 
 ```js
 import Collection from 'collecty'
