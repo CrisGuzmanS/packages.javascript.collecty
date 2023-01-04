@@ -13,13 +13,8 @@ import Collection from 'collecty'
 
 const myCollection = new Collection([1,2,3])
 
-let collection = new Collection([1, 2, 3])
+console.log(myCollection.toArray())
 
-let newCollection = collection.filter((item: number) => {
-   return item <= 2
-})
-
-console.log(newCollection.toArray())
 // output
 > [1,2]
 ```
