@@ -192,6 +192,25 @@ export default class Collection extends Iterable {
   }
 
   /**
+   * returns the last `item` and removes it from the `collection`
+   * 
+   * ```js
+   * let collection = new Collection([1,2,3])
+   * 
+   * console.log(collection.pop())
+   * // output
+   * > 3
+   * 
+   * console.log(collection.torray())
+   * // output
+   * > [1,2]
+   * ```
+   */
+  public pop(): any {
+    return this.item(this.items.pop())
+  }
+
+  /**
    * push new `item` to the `collection`
    * 
    * ```js

@@ -139,9 +139,9 @@ test('test "contains" method', () => {
     const containsThree = collection.contains((item: number) => {
         return item == 3
     })
-    
+
     expect(containsThree).toBe(true)
-    
+
     const containsFour = collection.contains((item: number) => {
         return item == 4
     })
@@ -154,7 +154,7 @@ test('test "get" method', () => {
     const collection = new Collection([1, 2, 3])
 
     const two = collection.get(1)
-    
+
     expect(two).toBe(2)
 })
 
@@ -163,6 +163,17 @@ test('test "push" method', () => {
     const collection = new Collection([1, 2, 3])
 
     collection.push(4)
-    
+
     expect(collection.count()).toBe(4)
+})
+
+test('test "pop" method', () => {
+
+    const collection = new Collection([1, 2, 3])
+
+    const three = collection.pop()
+
+    expect(three).toBe(3)
+
+    expect(collection.count()).toBe(2)
 })

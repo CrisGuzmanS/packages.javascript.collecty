@@ -247,6 +247,20 @@ const names = persons.map((person: Person) => {
 })
 ```
 
+### pop(item:any): void
+
+```js
+let collection = new Collection([1,2,3])
+
+console.log(collection.pop())
+// output
+> 3
+
+console.log(collection.torray())
+// output
+> [1,2]
+```
+
 ### push(item:any): void
 
 push new `item` to the `collection`
