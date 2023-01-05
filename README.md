@@ -247,6 +247,21 @@ const names = persons.map((person: Person) => {
 })
 ```
 
+### push(item:any): void
+
+push new `item` to the `collection`
+
+```js
+let collection = new Collection([1,2,3])
+
+collection.push(4)
+
+collection.toArray()
+
+// output
+> [1,2,3,4]
+```
+
 ### toArray(): any[]
 
 Transforms the collection to a javascript native array
@@ -264,6 +279,10 @@ console.log(collection.toArray())
 
 - [ ] last method
 - [ ] flatten method
+- [ ] notContains method
+- [ ] merge method
+- [ ] pop method
+- [ ] push method
 - [ ] StringCollection class
 - [ ] ObjectCollection class
 - [ ] NumberCollection class

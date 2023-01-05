@@ -1,19 +1,19 @@
 {
   "name": "collecty",
-  "version": "1.9.3",
+  "version": "1.10.0",
   "description": "allows iterating an array of elements with an easy-to-read syntax and gives functionality to the collection and the elements it iterates.",
-   "main": "lib/index.js",
-   "types": "lib/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
-    "prepare" : "npm run build",
-    "preversion" : "npm run lint",
-    "prepublishOnly" : "npm test && npm run lint",
-    "version" : "npm run format && git add -A src",
-    "postversion" : "git push && git push --tags"
+    "prepare": "npm run build",
+    "preversion": "npm run lint",
+    "prepublishOnly": "npm test && npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
@@ -28,15 +28,23 @@
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0"
   },
-  "files": ["lib/**/*"],
+  "files": [
+    "lib/**/*"
+  ],
   "keywords": [
-    "collection",
-    "iterable",
-    "first",
-    "count",
     "array",
+    "collection",
+    "contains",
+    "count",
+    "filter",
+    "first",
+    "firstWhere",
+    "fromArray",
+    "isEmpty",
+    "iterable",
     "laravel",
     "list",
-    "contains"
+    "map",
+    "push"
   ]
 }

@@ -192,6 +192,24 @@ export default class Collection extends Iterable {
   }
 
   /**
+   * push new `item` to the `collection`
+   * 
+   * ```js
+   * let collection = new Collection([1,2,3])
+   * 
+   * collection.push(4)
+   * 
+   * collection.toArray()
+   * 
+   * // output
+   * > [1,2,3,4]
+   * ```
+   */
+  public push(element: any): void {
+    this.items.push(element)
+  }
+
+  /**
    * Transforms the `collection` to a javascript native array
    * 
    * ```js

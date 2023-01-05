@@ -157,3 +157,12 @@ test('test "get" method', () => {
     
     expect(two).toBe(2)
 })
+
+test('test "push" method', () => {
+
+    const collection = new Collection([1, 2, 3])
+
+    collection.push(4)
+    
+    expect(collection.count()).toBe(4)
+})
