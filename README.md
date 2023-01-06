@@ -43,6 +43,7 @@ in the next code, as you can see, you can create your own collection, allowing y
 ```js
 import Collection from 'collecty'
 
+
 class AuthorCollection extends Collection {
 
     /**
@@ -73,11 +74,11 @@ class Author {
         this.item = item
     }
 
-    public gender(): bool{
+    public gender(): boolean {
         // ... code
     }
 
-    public isLegalAge(): bool{
+    public isLegalAge(): boolean {
         // .. code
     }
 }
@@ -101,6 +102,8 @@ for (const author of authors) {
 ```
 
 ## available methods
+
+### concat( array: any[] ): void
 
 ```js
 const collection = new Collection([1,2,3])
