@@ -44,10 +44,19 @@ in the next code, as you can see, you can create your own collection, allowing y
 import Collection from 'collecty'
 
 class AuthorCollection extends Collection {
-    item(item:any) {
+
+    /**
+     * each iteration will return an Author
+     * 
+     **/
+    public item(item:any): Author {
         return new Author(item)
     }
 
+    /**
+     * as you can see, you can create your custom filters for your own collection
+     * 
+     **/
     public malePeople(): AuthorCollection{
         // ... code
     }
