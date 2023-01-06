@@ -177,3 +177,13 @@ test('test "pop" method', () => {
 
     expect(collection.count()).toBe(2)
 })
+
+test('test "concact" method', () => {
+
+    const collection = new Collection([1, 2, 3])
+
+    collection.concat([4, 5, 6])
+
+    expect(collection.count()).toBe(6)
+
+})

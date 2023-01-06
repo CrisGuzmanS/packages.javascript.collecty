@@ -93,6 +93,17 @@ for (const author of authors) {
 
 ## available methods
 
+```js
+const collection = new Collection([1,2,3])
+
+collection.concat([4,5,6])
+
+console.log(collection.toArray())
+
+// output
+> [1,2,3,4,5,6]
+```
+
 ### contains( callback : (item:any) => any ): boolean
 
 checks if the `collection` contains at leat one item which match with the callback
@@ -102,13 +113,15 @@ const collection = new Collection([1, 2, 3])
 
 const containsThree = collection.contains( (item: number) => item == 3 )
 
-// true
+// output
+> true
 
 const containsFour = collection.contains((item: number) => {
     return item == 4
 })
 
-// false
+// output
+> false
 ```
 
 ### count(): number
@@ -295,8 +308,6 @@ console.log(collection.toArray())
 - [ ] flatten method
 - [ ] notContains method
 - [ ] merge method
-- [ ] pop method
-- [ ] push method
 - [ ] StringCollection class
 - [ ] ObjectCollection class
 - [ ] NumberCollection class

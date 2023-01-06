@@ -13,6 +13,23 @@ export default class Collection extends Iterable {
   }
 
   /**
+   * concacts the given array to the collection
+   * 
+   * ```js
+   * const collection = new Collection([1,2,3])
+   * 
+   * collection.concat([4,5,6])
+   * 
+   * console.log(collection.toArray())
+   * // output
+   * > [1, 2, 3, 4, 5, 6]
+   * ```
+   */
+  public concat(array: any[]): void {
+    this.items = this.items.concat(array)
+  }
+
+  /**
    * 
    */
   public contains(callback: (item: any) => boolean): boolean {
