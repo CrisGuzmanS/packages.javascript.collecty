@@ -55,7 +55,7 @@ class AuthorCollection extends Collection {
     }
 
     /**
-     * as you can see, you can create your custom filters for your own collection
+     * You can create your custom filters for your own collection
      * 
      **/
     public malePeople(): AuthorCollection{
@@ -86,7 +86,7 @@ class Author {
 const authors = new AuthorCollection(authorsArray)
 ```
 
-as you can see, in the code above, you can easily get the male or female people with an easy-to-read-syntax:
+In the code above, you can easily get the male or female people with an easy-to-read-syntax:
 
 ```js
 authors.malePeople()
