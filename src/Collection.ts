@@ -13,7 +13,7 @@ export default class Collection extends Iterable {
   }
 
   /**
-   * concacts the given array to the collection
+   * concacts the given array to the `collection`
    * 
    * ```js
    * const collection = new Collection([1,2,3])
@@ -134,7 +134,9 @@ export default class Collection extends Iterable {
   }
 
   /**
+   * creates a new collection from an array (does the same than new Collection(...))
    * 
+   * const collection = Collection.fromArray([1,2,3])
    */
   public static fromArray(array: any[]): Collection {
     return new this(array)
@@ -243,6 +245,23 @@ export default class Collection extends Iterable {
    */
   public push(element: any): void {
     this.items.push(element)
+  }
+
+  /**
+   * gets a random item
+   * 
+   * ```js
+   * collection = new Collection([1,2,3])
+   * 
+   * console.log(collection.random())
+   * //output
+   * > 3 (obtained randomly)
+   * ```
+   * 
+   */
+  public random(): any {
+    const index = Math.floor(Math.random() * this.items.length);
+    return this.item(this.items[index]);
   }
 
   /**

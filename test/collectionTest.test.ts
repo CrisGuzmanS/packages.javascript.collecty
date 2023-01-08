@@ -187,3 +187,15 @@ test('test "concact" method', () => {
     expect(collection.count()).toBe(6)
 
 })
+
+test('test "random" method', () => {
+
+    const collection = new Collection([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20])
+
+    const firstNumber = collection.random()
+    const secondNumber = collection.random()
+
+    expect(typeof firstNumber).toBe("number")
+    expect(firstNumber === secondNumber).toBe(false)
+
+})

@@ -6,20 +6,7 @@ This is an amazing library that allows you to create collections and iterate ove
 
 `npm install collecty`
 
-## basic usage
-
-```js
-import Collection from 'collecty'
-
-const myCollection = new Collection([1,2,3])
-
-console.log(myCollection.toArray())
-
-// output
-> [1,2]
-```
-
-## advanced usage
+## basic usge
 
 for example, maybe you could have an array of authors as a json format:
 
@@ -28,12 +15,18 @@ const authorsArray = [
     {
         "name": "Arthur",
         "gender": "male",
-        "age": "15"
+        "age": 15
     },
     {
         "name": "Veronica",
         "gender": "female",
-        "age": "40"
+        "age": 40
+    },
+    // ...
+    {
+        "name": "Johnson",
+        "gender": "male",
+        "age": 33
     }
 ]
 ```
@@ -106,30 +99,76 @@ for (const author of authors) {
 ### concat( array: any[] ): void
 
 ```js
-const collection = new Collection([1,2,3])
+const collection = new AuthorCollection([
+    {
+        "name": "Arthur",
+        "gender": "male",
+        "age": 15
+    },
+    {
+        "name": "Veronica",
+        "gender": "female",
+        "age": 40
+    },
+    {
+        "name": "Johnson",
+        "gender": "male",
+        "age": 33
+    }
+])
 
-collection.concat([4,5,6])
+collection.concat([{
+    "name": "Carl",
+    "gender": "male",
+    "age": 56
+}])
 
 console.log(collection.toArray())
 
 // output
-> [1,2,3,4,5,6]
+>   [{
+        "name": "Arthur",
+        "gender": "male",
+        "age": 15
+    },
+    {
+        "name": "Veronica",
+        "gender": "female",
+        "age": 40
+    },
+    {
+        "name": "Johnson",
+        "gender": "male",
+        "age": 33
+    }, {
+        "name": "Carl",
+        "gender": "male",
+        "age": 56
+    }]  
 ```
 
 ### contains( callback : (item:any) => any ): boolean
 
-checks if the `collection` contains at leat one item which match with the callback
+checks if the `collection` contains at least one item which matches with the callback
 
 ```js
-const collection = new Collection([1, 2, 3])
+const collection = new AuthorCollection([{
+    "name": "Johnson",
+    "gender": "male",
+    "age": 33
+}, {
+    "name": "Carl",
+    "gender": "male",
+    "age": 56
+}])
 
-const containsThree = collection.contains( (item: number) => item == 3 )
+collection.contains( (author: Author) => author.age() > 50 )
 
 // output
 > true
 
-const containsFour = collection.contains((item: number) => {
-    return item == 4
+collection.contains((author: Author) => {
+    return author.age() < 30
 })
 
 // output
@@ -141,7 +180,16 @@ const containsFour = collection.contains((item: number) => {
 gets total items in the `collection`
 
 ```js
-const collection = new Collection([1,2,3]);
+const collection = new AuthorCollection([{
+    "name": "Johnson",
+    "gender": "male",
+    "age": 33
+}, {
+    "name": "Carl",
+    "gender": "male",
+    "age": 56
+}]);
+
 console.log("total", collection.count())
 
 // output
@@ -299,6 +347,19 @@ collection.toArray()
 
 // output
 > [1,2,3,4]
+```
+
+### random(): any
+
+gets a random item
+
+```js
+collection = new Collection([1,2,3])
+
+console.log(collection.random())
+
+//output
+> 3 (obtained randomly)
 ```
 
 ### toArray(): any[]
