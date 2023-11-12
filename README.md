@@ -22,7 +22,6 @@ const authorsArray = [
         "gender": "female",
         "age": 40
     },
-    // ...
     {
         "name": "Johnson",
         "gender": "male",

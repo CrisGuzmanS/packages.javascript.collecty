@@ -1,7 +1,12 @@
 {
   "compilerOptions": {
+    "moduleResolution": "node",
     "target": "es2015",
-    "module": "commonjs",
+    "module": "amd",
+    "outFile": "dist/Collecty.js",
+    "paths": {
+      "@babel/parser": ["./node_modules/@babel/parser"]
+    },
     "lib": [
       "es2017",
       "es7",
@@ -18,5 +23,5 @@
   "exclude": [
     "node_modules",
     "**/__tests__/*"
-  ]
+  ],
 }
