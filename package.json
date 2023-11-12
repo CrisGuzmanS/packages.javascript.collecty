@@ -1,6 +1,6 @@
 {
   "name": "collecty",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "allows iterating an array of elements with an easy-to-read syntax and gives functionality to the collection and the elements it iterates.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -29,7 +29,7 @@
     "tslint-config-prettier": "^1.18.0"
   },
   "files": [
-    "lib/**/*"
+    "dist/**/*"
   ],
   "keywords": [
     "api",
