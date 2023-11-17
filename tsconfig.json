@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "moduleResolution": "node",
-    "target": "es2015",
-    "module": "es2015",
+    "target": "es2018",
+    "module": "commonjs",
     "paths": {
       "@babel/parser": ["./node_modules/@babel/parser"]
     },
