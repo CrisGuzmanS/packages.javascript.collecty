@@ -1,6 +1,6 @@
 {
   "name": "collecty",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "allows iterating an array of elements with an easy-to-read syntax and gives functionality to the collection and the elements it iterates.",
   "main": "dist/Collecty.js",
   "types": "dist/Collecty.d.ts",
