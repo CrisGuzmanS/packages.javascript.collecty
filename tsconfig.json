@@ -2,7 +2,7 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "target": "es2015",
-    "module": "amd",
+    "module": "commonjs",
     "outFile": "dist/Collecty.js",
     "paths": {
       "@babel/parser": ["./node_modules/@babel/parser"]

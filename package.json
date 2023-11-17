@@ -1,9 +1,9 @@
 {
   "name": "collecty",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "allows iterating an array of elements with an easy-to-read syntax and gives functionality to the collection and the elements it iterates.",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "dist/Collecty.js",
+  "types": "dist/Collecty.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",
