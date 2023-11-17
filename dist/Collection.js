@@ -1,7 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const Iterable_1 = require("./Iterable");
-class Collection extends Iterable_1.default {
+import Iterable from './Iterable';
+export default class Collection extends Iterable {
     /**
      * clones the `collection`
      *
@@ -257,4 +255,3 @@ class Collection extends Iterable_1.default {
         return this.items;
     }
 }
-exports.default = Collection;

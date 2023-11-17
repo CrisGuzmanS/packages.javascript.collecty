@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-class Iterable {
+export default class Iterable {
     constructor(items) {
         this.index = -1;
         this.items = items;
@@ -19,4 +17,3 @@ class Iterable {
         return item;
     }
 }
-exports.default = Iterable;
