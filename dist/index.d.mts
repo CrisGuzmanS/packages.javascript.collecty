@@ -1,14 +1,24 @@
-import Iterable from './Iterable';
-export default class Collection extends Iterable {
+declare class Iterable {
+    items: any[];
+    index: number;
+    constructor(items: any[]);
+    [Symbol.iterator](): {
+        next: () => {
+            value: any;
+            done: boolean;
+        };
+    };
+    item(item: any): any;
+}
+
+declare class Collection extends Iterable {
     /**
      * clones the `collection`
      *
      * const collection = new Collection([1,2,3])
      * const newCollection = collection.clone() // newCollection has the same items than collection
      */
-    clone() {
-        return Object.assign(Object.create(Object.getPrototypeOf(this)), this);
-    }
+    clone(): Collection;
     /**
      * concacts the given array to the `collection`
      *
@@ -22,20 +32,11 @@ export default class Collection extends Iterable {
      * > [1, 2, 3, 4, 5, 6]
      * ```
      */
-    concat(array) {
-        this.items = this.items.concat(array);
-    }
+    concat(array: any[]): void;
     /**
      *
      */
-    contains(callback) {
-        for (const item of this) {
-            if (callback(item)) {
-                return true;
-            }
-        }
-        return false;
-    }
+    contains(callback: (item: any) => boolean): boolean;
     /**
      * gets total items in the `collection`
      *
@@ -48,9 +49,7 @@ export default class Collection extends Iterable {
      * > total 3
      * ```
      */
-    count() {
-        return this.items.length;
-    }
+    count(): number;
     /**
      * returns a new `collection` with the `items` that match with the callback given
      *
@@ -66,18 +65,7 @@ export default class Collection extends Iterable {
      * > [1,2]
      * ```
      */
-    filter(callback) {
-        const newItems = [];
-        for (const [index, element] of this.items.entries()) {
-            const currentItem = this.item(this.items[index]);
-            if (callback(currentItem)) {
-                newItems.push(this.items[index]);
-            }
-        }
-        const clone = this.clone();
-        clone.items = newItems;
-        return clone;
-    }
+    filter(callback: (item: any) => any): Collection;
     /**
      * gets the first item in the `collection`
      *
@@ -87,9 +75,7 @@ export default class Collection extends Iterable {
      * // > first element 1
      * ```
      */
-    first() {
-        return this.item(this.items[0]);
-    }
+    first(): any;
     /**
      * returns the first `item` that matches the given callback
      *
@@ -108,22 +94,13 @@ export default class Collection extends Iterable {
      * > Person { item { name: "roger" } }
      * ```
      */
-    firstWhere(callback) {
-        for (const item of this) {
-            if (callback(item)) {
-                return item;
-            }
-        }
-        return null;
-    }
+    firstWhere(callback: (item: any) => any): any | null;
     /**
      * creates a new collection from an array (does the same than new Collection(...))
      *
      * const collection = Collection.fromArray([1,2,3])
      */
-    static fromArray(array) {
-        return new this(array);
-    }
+    static fromArray(array: any[]): Collection;
     /**
      * creates a new `collection` from a json
      *
@@ -131,9 +108,7 @@ export default class Collection extends Iterable {
      * collection = Collection.fromJson("[1,2,3]")
      * ```
      */
-    static fromJson(json) {
-        return new this(JSON.parse(json));
-    }
+    static fromJson(json: string): Collection;
     /**
      * gets the item acording to the given index
      *
@@ -145,9 +120,7 @@ export default class Collection extends Iterable {
      * > 2
      * ```
      */
-    get(index) {
-        return this.item(this.items[index]);
-    }
+    get(index: number): any;
     /**
      * checks if the `collection` is empty
      *
@@ -167,9 +140,7 @@ export default class Collection extends Iterable {
      * > true
      * ```
      */
-    isEmpty() {
-        return !this.items.length;
-    }
+    isEmpty(): boolean;
     /**
      * returns a `collection` with the data mapped for each element
      *
@@ -185,9 +156,7 @@ export default class Collection extends Iterable {
      * })
      * ```
      */
-    map(callback) {
-        return new Collection(this.items.map(itemElement => callback(this.item(itemElement))));
-    }
+    map(callback: (item: any) => any): Collection;
     /**
      * returns the last `item` and removes it from the `collection`
      *
@@ -203,9 +172,7 @@ export default class Collection extends Iterable {
      * > [1,2]
      * ```
      */
-    pop() {
-        return this.item(this.items.pop());
-    }
+    pop(): any;
     /**
      * push new `item` to the `collection`
      *
@@ -220,9 +187,7 @@ export default class Collection extends Iterable {
      * > [1,2,3,4]
      * ```
      */
-    push(element) {
-        this.items.push(element);
-    }
+    push(element: any): void;
     /**
      * gets a random item
      *
@@ -235,10 +200,7 @@ export default class Collection extends Iterable {
      * ```
      *
      */
-    random() {
-        const index = Math.floor(Math.random() * this.items.length);
-        return this.item(this.items[index]);
-    }
+    random(): any;
     /**
      * Transforms the `collection` to a javascript native array
      *
@@ -251,7 +213,7 @@ export default class Collection extends Iterable {
      * > [1,2,3]
      * ```
      */
-    toArray() {
-        return this.items;
-    }
+    toArray(): any[];
 }
+
+export { Collection as default };

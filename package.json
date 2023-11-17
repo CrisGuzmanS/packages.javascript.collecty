@@ -1,12 +1,13 @@
 {
   "name": "collecty",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "allows iterating an array of elements with an easy-to-read syntax and gives functionality to the collection and the elements it iterates.",
-  "main": "dist/Collecty.js",
-  "types": "dist/Collecty.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
-    "build": "tsc",
+    "build": "tsup",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
@@ -26,10 +27,11 @@
     "prettier": "^2.8.1",
     "ts-jest": "^29.0.3",
     "tslint": "^6.1.3",
-    "tslint-config-prettier": "^1.18.0"
+    "tslint-config-prettier": "^1.18.0",
+    "tsup": "^7.3.0"
   },
   "files": [
-    "dist/**/*"
+    "dist"
   ],
   "keywords": [
     "api",
