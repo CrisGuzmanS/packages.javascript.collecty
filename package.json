@@ -1,6 +1,6 @@
 {
   "name": "collecty",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "description": "allows iterating an array of elements with an easy-to-read syntax and gives functionality to the collection and the elements it iterates.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
