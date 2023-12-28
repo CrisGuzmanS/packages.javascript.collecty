@@ -186,7 +186,7 @@ export default class Collection extends Iterable {
      * ```
      */
     map(callback) {
-        return new Collection(this.items.map(itemElement => callback(this.item(itemElement))));
+        return new Collection(this.items.map((itemElement) => callback(this.item(itemElement))));
     }
     /**
      * returns the last `item` and removes it from the `collection`
