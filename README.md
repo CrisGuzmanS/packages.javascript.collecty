@@ -391,27 +391,22 @@ if you whish to collaborate to Collecty, you can pull request to the repository:
 
 ## How to publish the package?
 
-1. test the application
+1. commit the changes:
 ```
-npm test
-```
-
-2. Format the code
-```
-npm run format
+git commit -am <message>
 ```
 
-3. Change the version
+2. Change the version
 ```
 npm version <patch | minor | major>
 ```
 
-4. Login (if not already logged in)
+3. Login (if not already logged in)
 ```
 npm login
 ```
 
-5. Publish the package
+4. Publish the package
 ```
 npm publish
 ```
