@@ -34,7 +34,7 @@ import the Collection
 
 If you are using ECMAScript Modules:
 ```js
-import Collection from 'collecty/dist/index.umd.cjs';
+import { Collection } from 'collecty/dist/index.umd.cjs';
 ```
 
 If you are using CommonJS:

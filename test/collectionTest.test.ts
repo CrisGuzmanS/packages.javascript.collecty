@@ -1,4 +1,4 @@
-import Collection from '../src'
+import { Collection } from '../src'
 
 class NumberCollection extends Collection {
     item(item: any): Number {
