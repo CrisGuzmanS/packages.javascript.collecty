@@ -5,12 +5,12 @@ export default {
   output: [{
     file: 'dist/index.umd.cjs',
     format: 'umd',
-    name: 'Collecty',
+    name: 'Collection',
     sourcemap: true,
   },{
     file: 'dist/index.umd.js',
     format: 'umd',
-    name: 'Collecty',
+    name: 'Collection',
     sourcemap: true,
   }],
   plugins: [
