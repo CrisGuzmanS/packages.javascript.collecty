@@ -2,7 +2,7 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "target": "es2015",
-    "module": "es2015",
+    "module": "esnext",
     "paths": {
       "@babel/parser": ["./node_modules/@babel/parser"]
     },
