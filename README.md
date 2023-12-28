@@ -30,12 +30,26 @@ const authorsArray = [
 ]
 ```
 
+import the Collection
+
+If you are using ECMAScript Modules:
+```js
+import Collection from 'collecty/dist/index.umd.cjs';
+```
+
+If you are using CommonJS:
+```js
+const Collection = require('collecty/dist/index.umd.cjs');
+```
+
+If you are using the web browser:
+```html
+<script src="https://unpkg.com/collecty@latest/dist/index.umd.js"></script>
+```
+
 in the next code, as you can see, you can create your own collection, allowing you to transform each element that it has from an object to your custom Author class
 
 ```js
-import Collection from 'collecty'
-
-
 class AuthorCollection extends Collection {
 
     /**
