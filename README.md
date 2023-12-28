@@ -390,21 +390,23 @@ if you whish to collaborate to Collecty, you can pull request to the repository:
 [click here to go to the repository](https://github.com/CrisGuzmanS/packages.javascript.collecty)
 
 ## How to publish the package?
-1. Change the version
-```
-npm version <patch | minor | major>
-```
 
-2. test the application
+1. test the application
 ```
 npm test
 ```
 
-3. Format the code
+2. Format the code
 ```
 npm run format
 ```
-4. Login
+
+3. Change the version
+```
+npm version <patch | minor | major>
+```
+
+4. Login (if not already logged in)
 ```
 npm login
 ```
