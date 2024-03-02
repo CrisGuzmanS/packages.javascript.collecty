@@ -39,12 +39,18 @@ import { Collection } from 'collecty';
 
 If you are using CommonJS:
 ```js
-const Collection = require('collecty/dist/index.umd.cjs');
+const Collection = require('collecty').Collection;
 ```
 
 If you are using the web browser:
 ```html
-<script src="https://unpkg.com/collecty@latest/dist/index.umd.js"></script>
+<script src="https://unpkg.com/collecty@latest/dist/umd/index.umd.cjs"></script>
+<script>
+
+    const Collection = Collecty.Collection
+    // ...
+
+</script>
 ```
 
 in the next code, as you can see, you can create your own collection, allowing you to transform each element that it has from an object to your custom Author class
