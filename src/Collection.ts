@@ -75,7 +75,7 @@ export default class Collection extends Iterable {
   public filter(callback: (item: any) => any): Collection {
     const newItems = [];
 
-    for (const [index, element] of this.items.entries()) {
+    for (const [index,] of this.items.entries()) {
       const currentItem = this.item(this.items[index]);
 
       if (callback(currentItem)) {

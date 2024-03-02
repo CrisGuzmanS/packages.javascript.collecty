@@ -3,14 +3,13 @@ import typescript from 'rollup-plugin-typescript2';
 export default {
   input: 'src/index.ts',
   output: [{
-    file: 'dist/index.umd.cjs',
+    file: 'dist/umd/index.umd.js',
     format: 'umd',
     name: 'Collecty',
     sourcemap: true,
-  },{
-    file: 'dist/index.umd.js',
-    format: 'umd',
-    name: 'Collecty',
+  }, {
+    file: 'dist/esm/index.esm.js',
+    format: 'es',
     sourcemap: true,
   }],
   plugins: [
