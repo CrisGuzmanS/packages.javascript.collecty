@@ -3,7 +3,6 @@
   "version": "4.0.0",
   "description": "allows iterating an array of elements with an easy-to-read syntax and gives functionality to the collection and the elements it iterates.",
   "main": "./dist/umd/index.umd.cjs",
-  "module": "./dist/esm/index.esm.js",
   "types": "./dist/types/index.d.ts",
   "type": "module",
   "scripts": {

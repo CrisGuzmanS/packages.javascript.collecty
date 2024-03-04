@@ -7,10 +7,6 @@ export default {
     format: 'umd',
     name: 'Collecty',
     sourcemap: true,
-  }, {
-    file: 'dist/esm/index.esm.js',
-    format: 'es',
-    sourcemap: true,
   }],
   plugins: [
     typescript(),

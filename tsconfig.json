@@ -2,20 +2,10 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "target": "es2015",
-    "module": "esnext",
-    "paths": {
-      "@babel/parser": ["./node_modules/@babel/parser"]
-    },
-    "lib": [
-      "es2017",
-      "es7",
-      "es6",
-      "dom"
-    ],
     "declaration": true,
     "declarationDir": "./dist/types",
+    "strict": true,
     "outDir": "./dist/mjs",
-    "strict": true
   },
   "include": [
     "src"
