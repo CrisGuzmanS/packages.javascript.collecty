@@ -100,6 +100,9 @@ export default class Collection extends Iterable {
    * ```
    */
   public first(): any {
+    if (!this.items.length) {
+      return null;
+    }
     return this.item(this.items[0]);
   }
 
