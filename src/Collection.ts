@@ -279,4 +279,10 @@ export default class Collection extends Iterable {
   public toArray(): any[] {
     return this.items;
   }
+
+
+  public where(attribute: string, value: any): Collection {
+    return this.filter((item: any) => item[attribute] === value);
+  }
+
 }

@@ -20,7 +20,7 @@ class Person {
         this.item = item
     }
 
-    public name() {
+    get name() {
         return this.item.name
     }
 }
@@ -76,7 +76,7 @@ test('test "map" method', () => {
     }])
 
     const names = persons.map((person: Person) => {
-        return person.name()
+        return person.name
     })
 
     expect(names.first()).toBe("rix")
@@ -92,10 +92,10 @@ test('test "first where" method', () => {
     }])
 
     const person = persons.firstWhere((person: Person) => {
-        return person.name() == "roger"
+        return person.name == "roger"
     })
 
-    expect(person.name()).toBe("roger")
+    expect(person.name).toBe("roger")
 
 });
 
@@ -190,7 +190,7 @@ test('test "concact" method', () => {
 
 test('test "random" method', () => {
 
-    const collection = new Collection([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20])
+    const collection = new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20])
 
     const firstNumber = collection.random()
     const secondNumber = collection.random()
@@ -198,4 +198,17 @@ test('test "random" method', () => {
     expect(typeof firstNumber).toBe("number")
     expect(firstNumber === secondNumber).toBe(false)
 
+})
+
+
+test('test "where" method', () => {
+    let persons = new PersonCollection([{
+        'name': 'rix'
+    }, {
+        'name': 'roger'
+    }])
+
+    const person = persons.where("name", "rix").first()
+
+    expect(person.name).toBe("rix")
 })
