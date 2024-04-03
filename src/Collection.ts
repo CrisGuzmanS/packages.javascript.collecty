@@ -3,7 +3,7 @@ import Iterable from './Iterable';
 export default class Collection extends Iterable {
 
   set(array: any[]) {
-    Array.isArray(this.iterable) ? (this.iterable = array) : (this.iterable['items'] = array);
+    Array.isArray(this.iterable) ? (this.iterable = array) : (this.iterable.items = array);
   }
 
   /**
@@ -231,7 +231,7 @@ export default class Collection extends Iterable {
    * ```
    */
   public pop(): any {
-    let newArray = this.toArray();
+    const newArray = this.toArray();
 
     const element = newArray.pop();
 
