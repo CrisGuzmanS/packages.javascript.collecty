@@ -6,9 +6,25 @@ export default class Iterable {
     this.iterable = iterable;
   }
 
+  /**
+   * Transforms the `collection` to a javascript native array
+   *
+   * ```js
+   * collection = new Collection([1,2,3])
+   *
+   * console.log(collection.toArray())
+   *
+   * // output
+   * > [1,2,3]
+   * ```
+   */
+  toArray(): any[] {
+    return Array.isArray(this.iterable) ? this.iterable : this.iterable.items;
+  }
+
   public [Symbol.iterator]() {
     let index = -1;
-    const data = this.iterable;
+    const data = this.toArray();
 
     return {
       next: () => ({

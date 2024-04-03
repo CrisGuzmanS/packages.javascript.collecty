@@ -277,22 +277,6 @@ export default class Collection extends Iterable {
     return this.item(this.toArray()[index]);
   }
 
-  /**
-   * Transforms the `collection` to a javascript native array
-   *
-   * ```js
-   * collection = new Collection([1,2,3])
-   *
-   * console.log(collection.toArray())
-   *
-   * // output
-   * > [1,2,3]
-   * ```
-   */
-  toArray(): any[] {
-    return Array.isArray(this.iterable) ? this.iterable : this.iterable.items;
-  }
-
 
   public where(attribute: string, value: any): Collection {
     return this.filter((item: any) => item[attribute] === value);
