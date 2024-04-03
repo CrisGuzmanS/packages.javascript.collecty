@@ -1,14 +1,14 @@
 export default class Iterable {
-  public items;
+  public iterable;
   public index = -1;
 
-  constructor(items: any[]) {
-    this.items = items;
+  constructor(iterable: any) {
+    this.iterable = iterable;
   }
 
   public [Symbol.iterator]() {
     let index = -1;
-    const data = this.items;
+    const data = this.iterable;
 
     return {
       next: () => ({

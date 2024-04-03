@@ -1,6 +1,11 @@
 import Iterable from './Iterable';
 
 export default class Collection extends Iterable {
+
+  set(array: any[]) {
+    Array.isArray(this.iterable) ? (this.iterable = array) : (this.iterable['items'] = array);
+  }
+
   /**
    * clones the `collection`
    *
@@ -25,7 +30,7 @@ export default class Collection extends Iterable {
    * ```
    */
   public concat(array: any[]): void {
-    this.items = this.items.concat(array);
+    this.set(this.toArray().concat(array))
   }
 
   /**
@@ -54,7 +59,7 @@ export default class Collection extends Iterable {
    * ```
    */
   public count(): number {
-    return this.items.length;
+    return this.toArray().length;
   }
 
   /**
@@ -75,17 +80,17 @@ export default class Collection extends Iterable {
   public filter(callback: (item: any) => any): Collection {
     const newItems = [];
 
-    for (const [index,] of this.items.entries()) {
-      const currentItem = this.item(this.items[index]);
+    for (const [index,] of this.toArray().entries()) {
+      const currentItem = this.item(this.toArray()[index]);
 
       if (callback(currentItem)) {
-        newItems.push(this.items[index]);
+        newItems.push(this.toArray()[index]);
       }
     }
 
     const clone = this.clone();
 
-    clone.items = newItems;
+    clone.set(newItems);
 
     return clone;
   }
@@ -100,10 +105,10 @@ export default class Collection extends Iterable {
    * ```
    */
   public first(): any {
-    if (!this.items.length) {
+    if (!this.toArray().length) {
       return null;
     }
-    return this.item(this.items[0]);
+    return this.item(this.toArray()[0]);
   }
 
   /**
@@ -165,7 +170,7 @@ export default class Collection extends Iterable {
    * ```
    */
   public get(index: number): any {
-    return this.item(this.items[index]);
+    return this.item(this.toArray()[index]);
   }
 
   /**
@@ -188,7 +193,7 @@ export default class Collection extends Iterable {
    * ```
    */
   public isEmpty(): boolean {
-    return !this.items.length;
+    return !this.toArray().length;
   }
 
   /**
@@ -207,7 +212,7 @@ export default class Collection extends Iterable {
    * ```
    */
   public map(callback: (item: any) => any): Collection {
-    return new Collection(this.items.map((itemElement) => callback(this.item(itemElement))));
+    return new Collection(this.toArray().map((itemElement) => callback(this.item(itemElement))));
   }
 
   /**
@@ -226,7 +231,13 @@ export default class Collection extends Iterable {
    * ```
    */
   public pop(): any {
-    return this.item(this.items.pop());
+    let newArray = this.toArray();
+
+    const element = newArray.pop();
+
+    this.set(newArray);
+
+    return this.item(element);
   }
 
   /**
@@ -244,7 +255,9 @@ export default class Collection extends Iterable {
    * ```
    */
   public push(element: any): void {
-    this.items.push(element);
+    const array = this.toArray();
+    array.push(element)
+    this.set(array);
   }
 
   /**
@@ -260,8 +273,8 @@ export default class Collection extends Iterable {
    *
    */
   public random(): any {
-    const index = Math.floor(Math.random() * this.items.length);
-    return this.item(this.items[index]);
+    const index = Math.floor(Math.random() * this.toArray().length);
+    return this.item(this.toArray()[index]);
   }
 
   /**
@@ -276,8 +289,8 @@ export default class Collection extends Iterable {
    * > [1,2,3]
    * ```
    */
-  public toArray(): any[] {
-    return this.items;
+  toArray(): any[] {
+    return Array.isArray(this.iterable) ? this.iterable : this.iterable.items;
   }
 
 

@@ -178,7 +178,7 @@ test('test "pop" method', () => {
     expect(collection.count()).toBe(2)
 })
 
-test('test "concact" method', () => {
+test('test "concat" method', () => {
 
     const collection = new Collection([1, 2, 3])
 
@@ -211,4 +211,26 @@ test('test "where" method', () => {
     const person = persons.where("name", "rix").first()
 
     expect(person.name).toBe("rix")
+})
+
+test('test "array" method', () => {
+
+    const items = [{
+        'name': 'rix'
+    }, {
+        'name': 'roger'
+    }]
+
+    const iterable = {
+        items: items,
+        links: {
+            next: null,
+            prev: null,
+            self: null,
+        }
+    }
+
+    let persons = new PersonCollection(iterable)
+
+    expect(Array.isArray(persons.toArray())).toBe(true)
 })
