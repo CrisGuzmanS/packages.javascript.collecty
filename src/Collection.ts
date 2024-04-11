@@ -216,6 +216,29 @@ export default class Collection extends Iterable {
   }
 
   /**
+   * Returns a collection with the data mapped for each element
+   *
+   * ```js
+   * let persons = new PersonCollection([{
+   *  'name': 'rix',
+   *  'age': 25
+   * }, {
+   *  'name': 'roger',
+   *  'age': 30
+   * }])
+   *
+   * const names = persons.pluck('name') // new Collection(['rix', 'roger'])
+   * ```
+   */
+  pluck(property: string) {
+    const array = this.toArray().map(function (item) {
+      return item[property];
+    })
+
+    return new Collection(array);
+  }
+
+  /**
    * returns the last `item` and removes it from the `collection`
    *
    * ```js

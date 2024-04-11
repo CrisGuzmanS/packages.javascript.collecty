@@ -234,3 +234,17 @@ test('test "array" method', () => {
 
     expect(Array.isArray(persons.toArray())).toBe(true)
 })
+
+test('test "pluck" method', () => {
+    let persons = new PersonCollection([{
+        'name': 'rix',
+        'age': 25
+    }, {
+        'name': 'roger',
+        'age': 30
+    }])
+
+    const names = persons.pluck('name')
+
+    expect(names.first()).toBe('rix');
+})
