@@ -300,6 +300,25 @@ export default class Collection extends Iterable {
     return this.item(this.toArray()[index]);
   }
 
+  /**
+   * TODO: Document this
+   */
+  unique(): Collection {
+    const newCollection = this.clone();
+    const newArray: any[] = [];
+
+    for (const element of this.toArray()) {
+      const elementFound = newArray.find((currentElement: any) => JSON.stringify(currentElement) === JSON.stringify(element));
+
+      if (!elementFound) {
+        newArray.push(element);
+      }
+    }
+
+    newCollection.set(newArray);
+
+    return newCollection;
+  }
 
   public where(attribute: string, value: any): Collection {
     return this.filter((item: any) => item[attribute] === value);

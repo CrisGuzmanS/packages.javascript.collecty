@@ -23,6 +23,10 @@ class Person {
     get name() {
         return this.item.name
     }
+
+    toString() {
+        return this.item
+    }
 }
 
 class Number {
@@ -247,4 +251,24 @@ test('test "pluck" method', () => {
     const names = persons.pluck('name')
 
     expect(names.first()).toBe('rix');
+})
+
+test('test "unique" method', () => {
+    let persons = new PersonCollection([{
+        'name': 'rix',
+        'age': 25
+    }, {
+        'name': 'rix',
+        'age': 25
+    }, {
+        'name': 'rix',
+        'age': 25
+    }, {
+        'name': 'roger',
+        'age': 30
+    }])
+
+    expect(persons.count()).toBe(4);
+
+    expect(persons.unique().count()).toBe(2);
 })
