@@ -230,10 +230,25 @@ export default class Collection extends Iterable {
    * const names = persons.pluck('name') // new Collection(['rix', 'roger'])
    * ```
    */
-  pluck(property: string) {
-    const array = this.toArray().map(function (item) {
-      return item[property];
-    })
+  pluck(...properties: string[]) {
+
+    let array = [];
+
+    if (properties.length === 1) {
+      array = this.toArray().map(function (item) {
+        return item[properties[0]];
+      })
+    } else {
+
+      array = this.toArray().map(function (item) {
+        const result: any = {};
+
+        for (let i = 0; i < properties.length; i++) {
+          result[properties[i]] = item[properties[i]];
+        }
+        return result;
+      })
+    }
 
     return new Collection(array);
   }

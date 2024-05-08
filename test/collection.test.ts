@@ -242,15 +242,17 @@ test('test "array" method', () => {
 test('test "pluck" method', () => {
     let persons = new PersonCollection([{
         'name': 'rix',
-        'age': 25
+        'age': 25,
+        'city': 'berlin'
     }, {
         'name': 'roger',
-        'age': 30
+        'age': 30,
+        'city': 'berlin'
     }])
 
-    const names = persons.pluck('name')
-
-    expect(names.first()).toBe('rix');
+    expect(persons.pluck('name').first()).toBe('rix');
+    expect(persons.pluck('name', 'age').first().age).toBe(25);
+    expect(persons.pluck('name', 'city').first().age).toBe(undefined);
 })
 
 test('test "unique" method', () => {
