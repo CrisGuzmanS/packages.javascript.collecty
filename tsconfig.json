@@ -6,6 +6,7 @@
     "declarationDir": "./dist/types",
     "strict": true,
     "outDir": "./dist/mjs",
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "src"

@@ -1,4 +1,5 @@
 import Iterable from './Iterable';
+import isEmpty from 'is-empty';
 
 export default class Collection extends Iterable {
 
@@ -337,6 +338,44 @@ export default class Collection extends Iterable {
 
   public where(attribute: string, value: any): Collection {
     return this.filter((item: any) => item[attribute] === value);
+  }
+
+  public whereNotIn(property: string, values: any[]) {
+    return this.filter((entity) => {
+      return !values.includes(entity[property]);
+    });
+  }
+
+  public whereNot(property: string, value: any) {
+    return this.filter((entity) => {
+      return entity[property] !== value;
+    });
+  }
+
+  public whereIn(property: string, values: any[]) {
+    return this.filter((entity) => {
+      return values.includes(entity[property]);
+    });
+  }
+
+  public whereNotEmpty(property: string) {
+    return this.filter((entity) => {
+      if (isEmpty(entity[property])) {
+        return false;
+      }
+
+      return true;
+    });
+  }
+
+  public whereEmpty(property: string) {
+    return this.filter((entity) => {
+      if (!isEmpty(entity[property])) {
+        return false;
+      }
+
+      return true;
+    });
   }
 
 }

@@ -7,8 +7,12 @@ export default {
     format: 'umd',
     name: 'Collecty',
     sourcemap: true,
+    globals: {
+      'is-empty': 'isEmpty',
+    }
   }],
   plugins: [
     typescript(),
   ],
+  external: ['is-empty'],
 };
