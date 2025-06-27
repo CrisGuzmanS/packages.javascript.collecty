@@ -336,8 +336,12 @@ export default class Collection extends Iterable {
     return newCollection;
   }
 
-  public where(attribute: string, value: any): Collection {
-    return this.filter((item: any) => item[attribute] === value);
+  public where(attributeOrCallback: string | ((item: any) => boolean), value?: any): Collection {
+    if (typeof attributeOrCallback === 'function') {
+      return this.filter(attributeOrCallback);
+    } else {
+      return this.filter((item: any) => item[attributeOrCallback] === value);
+    }
   }
 
   public whereNotIn(property: string, values: any[]) {
