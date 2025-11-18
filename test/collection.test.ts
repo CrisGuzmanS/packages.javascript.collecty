@@ -1,4 +1,5 @@
 import { Collection } from '../src'
+import { Entity } from '../src/Entity'
 
 class NumberCollection extends Collection {
     item(item: any): Number {
@@ -12,21 +13,8 @@ class PersonCollection extends Collection {
     }
 }
 
-class Person {
-
-    private item;
-
-    constructor(item: any) {
-        this.item = item
-    }
-
-    get name() {
-        return this.item.name
-    }
-
-    toString() {
-        return this.item
-    }
+class Person extends Entity<any> {
+    [key: string]: any;
 }
 
 class Number {
