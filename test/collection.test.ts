@@ -207,7 +207,7 @@ test('test "where" method', () => {
 
     expect(person.name).toBe("rix")
 
-    const person2 = persons.where("address.street", "Santo Domingo").first()
+    const person2 = persons.where("name", "rix").where("address.street", "Santo Domingo").first()
 
     expect(person2.name).toBe("rix")
 
