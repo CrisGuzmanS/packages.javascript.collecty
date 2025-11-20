@@ -388,4 +388,46 @@ export default class Collection extends Iterable {
     });
   }
 
+  /**
+   * 
+   */
+  public orderBy(property: string, order: 'asc' | 'desc' = 'asc'): Collection {
+    const array = this.toArray();
+    const sortedArray = array.sort((a: any, b: any) => {
+      if (order === 'asc') {
+        return a[property] > b[property] ? 1 : -1;
+      } else {
+        return a[property] < b[property] ? 1 : -1;
+      }
+    });
+    this.set(sortedArray);
+    return this;
+  }
+
+  /**
+   * Returns the minimum item of the given property
+   * 
+   * @param property
+   * @returns 
+   */
+  public min(property: string): any {
+    const item = this.toArray().reduce((a: any, b: any) => {
+
+      if (!a[property] && !b[property]) {
+        return null
+      }
+
+      if (a[property] < b[property]) {
+        return a;
+      } else {
+        return b;
+      }
+    });
+
+    if (!item) {
+      return null;
+    }
+
+    return this.item(item);
+  }
 }

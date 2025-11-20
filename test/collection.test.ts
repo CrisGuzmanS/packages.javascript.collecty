@@ -279,3 +279,37 @@ test('test "unique" method', () => {
 
     expect(persons.unique().count()).toBe(2);
 })
+
+test('test "orderBy" method', () => {
+    let persons = new PersonCollection([{
+        'name': 'rix',
+        'age': 25,
+        'birthday': '1989-01-01'
+    }, {
+        'name': 'roger',
+        'age': 30,
+        'birthday': '1999-12-12'
+    }])
+
+    expect(persons.orderBy('age').first().name).toBe('rix')
+    expect(persons.orderBy('age', 'desc').first().name).toBe('roger')
+    expect(persons.orderBy('birthday').first().name).toBe('rix')
+    expect(persons.orderBy('birthday', 'desc').first().name).toBe('roger')
+})
+
+test('test "min" method', () => {
+    let persons = new PersonCollection([{
+        'name': 'rix',
+        'age': 25,
+        'birthday': '1989-01-01'
+    }, {
+        'name': 'roger',
+        'age': 30,
+        'birthday': '1999-12-12'
+    }])
+
+    expect(persons.min('age').name).toBe('rix')
+    expect(persons.min('birthday').name).toBe('rix')
+    expect(persons.min('name').name).toBe('rix')
+    expect(persons.min('other')).toBe(null)
+})
